@@ -29,4 +29,4 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 
 ### `Resources`
 
-(Next.js Tutorial)[https://www.youtube.com/watch?v=AWbYJgsXHQ4]
+[Next.js Tutorial](https://www.youtube.com/watch?v=AWbYJgsXHQ4)
