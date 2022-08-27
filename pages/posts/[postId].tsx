@@ -17,7 +17,6 @@ const Post: NextPage<Props> = ({ post }) => {
         return <h1>Loading...</h1>
     }
 
-
     return (
         <div>
             {post.id}

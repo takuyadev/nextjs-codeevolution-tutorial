@@ -2,12 +2,16 @@ import { NextPage } from "next";
 import { useState, useEffect } from "react";
 
 
+
+// Client side data fetching
+
 interface Dashboard {
     posts: number,
     likes: number,
     followers: number
     following: number 
 }
+
 const Dashboard: NextPage = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [dashboardData, setDashboardData] = useState<Dashboard | null>(null)
