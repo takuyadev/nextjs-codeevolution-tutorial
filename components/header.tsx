@@ -1,6 +1,10 @@
 import Link from "next/link"
+import { signIn, signOut, useSession } from "next-auth/react"
 
 const Header: React.FC = () => {
+    const { data: session, status } = useSession()
+    console.log(session, status)
+
     return (
         <header className="flex p-4 gap-8">
             <Link href="/">Home</Link>
@@ -12,6 +16,8 @@ const Header: React.FC = () => {
             <Link href="/docs">Docs</Link>
             <Link href="/pets">Pets</Link>
             <Link href="/posts">Posts</Link>
+            <button onClick={() => signOut()} className="bg-red-200 p-4">Logout</button>
+            <button onClick={() => signIn('github')} className="bg-green-200 p-4">Signin</button>
         </header>
     )
 }

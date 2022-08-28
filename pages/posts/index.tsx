@@ -11,6 +11,10 @@ interface PostType {
 }
 
 const PostList: NextPage<Props> = ({ posts }) => {
+    const user = process.env.DB_USER;
+    const password = process.env.DB_PASSWORD
+    console.log(user, password)
+    
     return (
         <div className="flex flex-col gap-8">
             <h1 className="text-3xl font-bold"> List of Posts </h1>
@@ -35,6 +39,8 @@ export default PostList
 export const getStaticProps: GetStaticProps = async () => {
     const response = await fetch('https://jsonplaceholder.typicode.com/posts')
     const data = await response.json()
+
+
     return {
         props: {
             posts: data

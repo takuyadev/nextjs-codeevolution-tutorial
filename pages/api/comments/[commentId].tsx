@@ -1,16 +1,17 @@
 import { comments } from "../../../data/comments";
+import { getSession } from 'next-auth/react'
 
-export default function handler(req: any, res: any) {
+export default async function handler(req: any, res: any) {
+    const session = await (getSession({ req }))
     // GET params in the URL request
     const { commentId } = req.query
     // Filter Comments to only receive queried comment
-    const comment = comments.filter(comment =>  comment.id === parseInt(commentId))
+    const comment = comments.filter(comment => comment.id === parseInt(commentId))
 
     // Handle GET request for single comment
-    if(req.method === "GET"){
+    if (req.method === "GET") {
         res.status(200).json(comment)
-    } 
-
+    }
     // Modifying comment
     if (req.method === "POST") {
         const index = comments.findIndex(comment => comment.id === parseInt(commentId))
@@ -21,9 +22,11 @@ export default function handler(req: any, res: any) {
 
     //DELETE Request
     // Same request as submit
-    else if (req.method === "DELETE"){
+    else if (req.method === "DELETE") {
         const newComments = comments.splice(comments.findIndex(comment => comment.id === parseInt(commentId)), 1)
         res.status(200).json(newComments)
     }
+
+
 }
 
