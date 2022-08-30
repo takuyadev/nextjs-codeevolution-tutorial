@@ -32,10 +32,8 @@ export default Post
 export const getStaticProps: GetStaticProps = async (context) => {
     const { params } = context
 
-    const user = process.env.DB_USERS;
-    const password = process.env.DB_PASSWORD
-    console.log(user, password)
-    
+
+
     const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${params?.postId}`)
     const data = await response.json()
 

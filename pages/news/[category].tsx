@@ -28,10 +28,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     console.log(query)
     // Accesssing cookies using next.js
     console.log(req.headers.cookie);
-    const user = process.env.DB_USERS;
-    const password = process.env.DB_PASSWORD
 
-    console.log(user, password)
     res.setHeader('Set-Cookie', ['name=Vishwas'])
 
     const response = await fetch(`http://localhost:3000/news?category=${params?.category}`)

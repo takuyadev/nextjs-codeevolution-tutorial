@@ -5,7 +5,7 @@ import Footer from 'components/footer';
 import Head from 'next/head';
 import { SessionProvider } from "next-auth/react"
 
-function MyApp({ Component, pageProps: { session, ...pageProps }, }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   if (Component.getLayout) {
     return Component.getLayout(<Component {...pageProps} />)
 

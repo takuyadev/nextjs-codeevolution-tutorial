@@ -21,8 +21,8 @@ export async function getServerSideProps(context) {
                 permanent: false
             }
         }
-
     }
+    
     return {
         props: {
             data: session ? 'List of 100 personalized blogs' : "List of free blogs"
